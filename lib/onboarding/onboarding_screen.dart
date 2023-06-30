@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:plant_app/home_screen.dart';
+import 'package:plant_app/plant_app_home_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../app_colors.dart';
@@ -73,8 +73,10 @@ class _OnBoardingScreen extends State<OnBoardingScreen> {
           TextButton(
             onPressed: () {
               _storeOnboardInfo();
-              Navigator.pushReplacement(context,
-                  MaterialPageRoute(builder: (context) => HomeScreen()));
+              Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => PlantAppHomeScreen()));
             },
             child: Text(
               "Skip",
@@ -158,7 +160,7 @@ class _OnBoardingScreen extends State<OnBoardingScreen> {
                         Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => HomeScreen()));
+                                builder: (context) => PlantAppHomeScreen()));
                       }
 
                       _pageController.nextPage(
