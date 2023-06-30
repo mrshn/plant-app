@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:plant_app/splash_screen.dart';
+import 'package:plant_app/features/splash/splash_screen.dart';
 
-import 'app_theme.dart';
+import 'constants/app_theme.dart';
 
 class PlantApp extends StatelessWidget {
   const PlantApp({super.key});

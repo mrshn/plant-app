@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:plant_app/plant_app_home_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../app_colors.dart';
-import '../models/onboard_model.dart';
+import '../../constants/app_colors.dart';
+import '../../models/onboard_model.dart';
 
 class OnBoardingScreen extends StatefulWidget {
   @override
