@@ -2,8 +2,14 @@ import 'package:flutter/material.dart';
 
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:plant_app/features/home/home_provider.dart';
+import 'package:plant_app/features/home/plant_grid_list.dart/plant_grid_list.dart';
+import 'package:plant_app/features/home/search_plants/search.dart';
 
 import '../../models/plant.dart';
+import 'package:provider/provider.dart';
+
+import 'sign_box/sign_box.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -41,78 +47,52 @@ class HomeScreen extends StatelessWidget {
             );
           } else if (snapshot.hasData) {
             final plants = snapshot.data!;
-            return Container(
+            return ChangeNotifierProvider<HomeProvider>(
+              create: (context) => HomeProvider(allPlants: plants),
               child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    Text("aaww"),
-                    Text("aa"),
-                    Text("aas"),
-                    Text("aa"),
-                    Text("aa"),
-                    Text("aa"),
-                    Text("aa"),
-                    Text("aa"),
-                    Text("aa"),
-                    ConstrainedBox(
-                      constraints: BoxConstraints(
-                        minHeight: 80,
-                        maxHeight: double.infinity,
-                      ),
-                      child: Container(
-                        child: GridView.builder(
-                          shrinkWrap: true,
-                          padding: EdgeInsets.all(8),
-                          scrollDirection: Axis.vertical,
-                          itemCount: plants.length,
-                          physics: NeverScrollableScrollPhysics(),
-                          gridDelegate:
-                              const SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 2,
-                            crossAxisSpacing: 10.0,
-                            mainAxisSpacing: 10.0,
+                child: Center(
+                  child: Column(
+                    children: [
+                      const SizedBox(height: 40),
+                      Padding(
+                        padding: EdgeInsets.only(
+                            left: MediaQuery.of(context).size.width * 0.075),
+                        child: const Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            'Hi, plant loverr!',
+                            style: TextStyle(
+                              color: Color(0xff13231B),
+                              fontSize: 16.0,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
-                          itemBuilder: (context, index) {
-                            final plant = plants[index];
-                            return Card(
-                              child: Stack(
-                                children: [
-                                  Container(
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(16.0),
-                                      image: DecorationImage(
-                                        image: NetworkImage(plant.image.url),
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                        top: 6.0, left: 6.0),
-                                    child: Container(
-                                      padding: EdgeInsets.all(10.0),
-                                      width: MediaQuery.of(context).size.width *
-                                          0.3,
-                                      alignment: Alignment.topLeft,
-                                      child: Text(
-                                        plant.name,
-                                        maxLines: 2,
-                                        style: TextStyle(
-                                          color: Colors.black,
-                                          fontSize: 16.0,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            );
-                          },
                         ),
                       ),
-                    ),
-                  ],
+                      const SizedBox(height: 12),
+                      Padding(
+                        padding: EdgeInsets.only(
+                            left: MediaQuery.of(context).size.width * 0.075),
+                        child: const Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            'Good Afternoon!',
+                            style: TextStyle(
+                              color: Color(0xff13231B),
+                              fontSize: 24.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 12),
+                      const SearchWidget(
+                        hintText: "Search for plants",
+                      ),
+                      const SizedBox(height: 12),
+                      const PlantGridList(),
+                    ],
+                  ),
                 ),
               ),
             );

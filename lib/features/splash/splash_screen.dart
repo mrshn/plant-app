@@ -28,6 +28,8 @@ class _SplashScreenState extends State<SplashScreen> {
   Future<bool> _jobWhileSplash() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     bool? isviewed = prefs.getInt('onBoard') == 0;
+    return false;
+
     if (isviewed == null || !isviewed) {
       return false;
     }
