@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'plant_app_home_screen.dart';
-import 'onboarding/onboarding_screen.dart';
+import '../../plant_app_home_screen.dart';
+import '../onboarding/onboarding_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -28,6 +28,7 @@ class _SplashScreenState extends State<SplashScreen> {
   Future<bool> _jobWhileSplash() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     bool? isviewed = prefs.getInt('onBoard') == 0;
+
     if (isviewed == null || !isviewed) {
       return false;
     }

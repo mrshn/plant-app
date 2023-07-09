@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'app_colors.dart';
 
-//TODO: Update with design changes
-
 class AppTheme {
   static String appFont = 'Georgia';
 
