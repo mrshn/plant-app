@@ -1,4 +1,4 @@
-class PlantModel {
+class Plant {
   int id;
   String name;
   DateTime createdAt;
@@ -8,7 +8,7 @@ class PlantModel {
   int rank;
   PlantImage image;
 
-  PlantModel({
+  Plant({
     required this.id,
     required this.name,
     required this.createdAt,
@@ -19,8 +19,8 @@ class PlantModel {
     required this.image,
   });
 
-  factory PlantModel.fromJson(Map<String, dynamic> json) {
-    return PlantModel(
+  factory Plant.fromJson(Map<String, dynamic> json) {
+    return Plant(
       id: json['id'],
       name: json['name'],
       createdAt: DateTime.parse(json['createdAt']),

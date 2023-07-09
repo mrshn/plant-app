@@ -12,7 +12,7 @@ class PlantGridList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<PlantModel> plants =
+    final List<Plant> plants =
         Provider.of<HomeProvider>(context).filteredPlants;
 
     return ConstrainedBox(

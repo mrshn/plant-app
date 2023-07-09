@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import '../../models/plant.dart';
 
 class HomeProvider with ChangeNotifier {
-  late List<PlantModel> allPlants;
-  late List<PlantModel> filteredPlants;
+  late List<Plant> allPlants;
+  late List<Plant> filteredPlants;
 
   HomeProvider({
     required this.allPlants,
